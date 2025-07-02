@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographie : Redynamisation des CIV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            color: #FFC300; /* Yellow for contrast in flow */
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-[#F0F8FF] text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12 pb-4 border-b-4 border-[#00E0FF]">
+            <img src="https://www.ongdefi.org/wp-content/uploads/2024/03/logo_defi.svg" alt="Logo de l'ONG Défi" class="mx-auto mb-4 w-32 h-32 md:w-40 md:h-40 object-contain">
+            <h1 class="text-4xl md:text-6xl font-black text-[#34317C] uppercase">Redynamisation des CIV</h1>
+            <p class="text-lg md:text-xl text-[#00E0FF] mt-2">Relancer l'Utilité Sociale et Renforcer la Pérennité de 7 Centres Villageois</p>
+        </header>
+
+        <main>
+            <section id="challenge" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                <div class="text-center bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-[#34317C] mb-4">Le Défi : Un Constat Alarmant</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-6">
+                        Au cours de plusieurs missions, une diminution significative de la fréquentation des Centres d'Information Villageois (CIV) a été constatée. Cette situation, variable d'un site à l'autre, menace leur rôle social et justifie une mission de redynamisation visant à :
+                        <ul class="list-disc list-inside mt-2 text-left mx-auto max-w-xl">
+                            <li>Réinsuffler une dynamique communautaire et sociale.</li>
+                            <li>Adapter l’offre de services aux besoins réels des populations.</li>
+                            <li>Mettre en place des mécanismes durables d’animation et de gestion participative.</li>
+                        </ul>
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        
+                        <div class="bg-white rounded-lg p-6">
+                            <h3 class="text-2xl font-bold text-center text-[#34317C] mb-4">Les 4 Causes du Déclin</h3>
+                             <p class="text-center text-gray-600 mb-4">L'analyse a révélé quatre catégories de problèmes qui freinent l'activité des CIV. Le manque d'attractivité des services et les soucis techniques sont les obstacles majeurs.</p>
+                            <div class="chart-container">
+                                <canvas id="causesChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="text-left space-y-4">
+                            <div class="p-4 bg-white rounded-lg border-l-4 border-[#00E0FF] shadow-sm transition-all duration-200 hover:bg-blue-50">
+                                <h4 class="font-bold text-xl text-[#34317C]">📉 Manque d’attractivité</h4>
+                                <p>L'offre de services et de contenus n'a pas évolué, créant une perte d'intérêt chez les usagers.</p>
+                            </div>
+                             <div class="p-4 bg-white rounded-lg border-l-4 border-[#00E0FF] shadow-sm transition-all duration-200 hover:bg-blue-50">
+                                <h4 class="font-bold text-xl text-[#34317C]">🔧 Problèmes techniques</h4>
+                                <p>Pannes de matériel, locaux mal entretenus ou non sécurisés qui découragent activement les visites.</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg border-l-4 border-[#00E0FF] shadow-sm transition-all duration-200 hover:bg-blue-50">
+                                <h4 class="font-bold text-xl text-[#34317C]">👥 Faible implication communautaire</h4>
+                                <p>L'appropriation locale est insuffisante, limitant la mobilisation et le bouche-à-oreille positif.</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg border-l-4 border-[#00E0FF] shadow-sm transition-all duration-200 hover:bg-blue-50">
+                                <h4 class="font-bold text-xl text-[#34317C]">⏱️ Contraintes logistiques</h4>
+                                <p>Les horaires d'ouverture et l'accès géographique difficile ne correspondent pas aux disponibilités des habitants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="villages" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                 <div class="text-center bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-[#34317C] mb-4">Focus sur les 7 Villages</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-8">Chaque village présente une réalité unique. Le graphique ci-dessous évalue la situation de chaque CIV sur quatre axes clés (sur une échelle de 0 à 10), où un score plus élevé indique une meilleure situation. Les villages totalement inactifs comme Marogoaika et Ambatomena montrent un besoin urgent d'intervention. Les données sont illustratives pour la démonstration.</p>
+                    <div class="chart-container h-[500px] md:h-[600px] max-w-2xl">
+                        <canvas id="villageBarChart"></canvas>
+                    </div>
+                    <div class="text-left mt-8 mx-auto max-w-3xl">
+                        <h3 class="text-2xl font-bold text-[#34317C] mb-4">Contextes Spécifiques par Village :</h3>
+                        <ul class="list-disc list-inside text-lg space-y-2">
+                            <li><strong>Nomenjanahary :</strong> Faible clarté des rôles du comité, locaux peu sécurisés, besoins forts en santé et agriculture.</li>
+                            <li><strong>Ambaravaranala :</strong> Comité gestionnaire en sommeil, absence de formalisation des engagements.</li>
+                            <li><strong>Tsarahonenana :</strong> Installation récente, besoin de soutien et de sensibilisation pour une utilisation régulière.</li>
+                            <li><strong>Ankisiramena :</strong> Méconnaissance des services par une partie de la population, manquements parfois attribués aux responsables.</li>
+                            <li><strong>Ambohibehivavy :</strong> Ressources non mises à jour, un seul responsable actif limitant les opérations.</li>
+                            <li><strong>Marogoaika :</strong> CIV totalement inactif, absence de structure d’animation, manque de visibilité.</li>
+                            <li><strong>Ambatomena :</strong> Resté fermé longtemps, équipements hors service jusqu'à récemment, absence totale de visiteurs.</li>
+                        </ul>
+                    </div>
+                 </div>
+            </section>
+
+            <section id="plan" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                <div class="text-center bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-[#34317C] mb-4">Notre Plan d'Action en 5 Phases</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-8">
+                        La démarche s’appuie sur une approche participative combinant enquêtes quantitatives, focus groups, observation directe et ateliers pratiques. Les données collectées alimentent une analyse transversale, suivie d’une co-construction des solutions avec les acteurs locaux.
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-0">
+                        <div class="text-center p-4 max-w-xs transition-all duration-200 hover:scale-105">
+                            <div class="bg-[#34317C] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">1</div>
+                            <h3 class="font-bold text-lg">Préparation</h3>
+                            <p class="text-sm text-gray-600">Formation équipe, finalisation outils, planification logistique, contact acteurs locaux.</p>
+                        </div>
+                        <div class="flex items-center justify-center h-16 md:h-auto md:w-16 transform md:-rotate-0 rotate-90">
+                           <span class="flow-arrow font-sans">→</span>
+                        </div>
+                        <div class="text-center p-4 max-w-xs transition-all duration-200 hover:scale-105">
+                            <div class="bg-[#00E0FF] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">2</div>
+                            <h3 class="font-bold text-lg">Diagnostic</h3>
+                            <p class="text-sm text-gray-600">Enquêtes individuelles, focus groups, observation directe, compilation réponses.</p>
+                        </div>
+                        <div class="flex items-center justify-center h-16 md:h-auto md:w-16 transform md:-rotate-0 rotate-90">
+                           <span class="flow-arrow font-sans">→</span>
+                        </div>
+                        <div class="text-center p-4 max-w-xs transition-all duration-200 hover:scale-105">
+                           <div class="bg-[#FFC300] text-gray-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">3</div>
+                            <h3 class="font-bold text-lg">Relance</h3>
+                            <p class="text-sm text-gray-600">Demi-journée "Redécouverte", ateliers pratiques, installation affiches.</p>
+                        </div>
+                         <div class="flex items-center justify-center h-16 md:h-auto md:w-16 transform md:-rotate-0 rotate-90">
+                           <span class="flow-arrow font-sans">→</span>
+                        </div>
+                        <div class="text-center p-4 max-w-xs transition-all duration-200 hover:scale-105">
+                             <div class="bg-[#FF5733] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">4</div>
+                            <h3 class="font-bold text-lg">Analyse</h3>
+                            <p class="text-sm text-gray-600">Compilation centralisée, analyse transversale, fiches synthèse, plan d'action localisé.</p>
+                        </div>
+                         <div class="flex items-center justify-center h-16 md:h-auto md:w-16 transform md:-rotate-0 rotate-90">
+                           <span class="flow-arrow font-sans">→</span>
+                        </div>
+                        <div class="text-center p-4 max-w-xs transition-all duration-200 hover:scale-105">
+                            <div class="bg-gray-700 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">5</div>
+                            <h3 class="font-bold text-lg">Rapport</h3>
+                            <p class="text-sm text-gray-600">Rédaction rapport global, présentation interne, diffusion fiches simplifiées.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="deliverables" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                <div class="text-center bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-[#34317C] mb-4">Livrables Attendus</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-8">
+                        Cette mission de redynamisation produira des résultats concrets et exploitables pour chaque CIV et pour l'ensemble du projet.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-3xl mx-auto">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md">
+                            <h4 class="font-bold text-xl text-[#34317C]">✅ Outils Validés</h4>
+                            <p>Questionnaire, guide d’entretien, et fiche synthèse finalisés et opérationnels.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md">
+                            <h4 class="font-bold text-xl text-[#34317C]">📝 Rapports d'Enquête</h4>
+                            <p>Un rapport détaillé par village, compilant les données et observations.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md">
+                            <h4 class="font-bold text-xl text-[#34317C]">💡 Fiches d'Action Spécifiques</h4>
+                            <p>Une fiche d’action concrète et localisée pour chaque site CIV.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md">
+                            <h4 class="font-bold text-xl text-[#34317C]">📄 Rapport Global de Mission</h4>
+                            <p>Un rapport complet incluant toutes les recommandations opérationnelles.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sustainability" class="transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+                 <div class="text-center bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-[#34317C] mb-4">Construire un Avenir Durable</h2>
+                    <p class="max-w-3xl mx-auto text-lg mb-8">La redynamisation ponctuelle ne suffit pas. Voici les 12 actions clés proposées pour assurer la pérennité et l'ancrage des CIV dans la vie communautaire.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-left">
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🎓</span><strong class="text-[#34317C]">Capacités Locales</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">💰</span><strong class="text-[#34317C]">Micro-activités (MAGR)</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🤝</span><strong class="text-[#34317C]">Financement Participatif</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🏢</span><strong class="text-[#34317C]">Partenariats</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📊</span><strong class="text-[#34317C]">Comité de Pilotage</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📱</span><strong class="text-[#34317C]">Outils de Suivi Numérique</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🗣️</span><strong class="text-[#34317C]">Ambassadeurs</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🛠️</span><strong class="text-[#34317C]">Maintenance Préventive</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📝</span><strong class="text-[#34317C]">Évaluation Annuelle</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📰</span><strong class="text-[#34317C]">Communication Continue</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🔄</span><strong class="text-[#34317C]">Gestion Tournante</strong></div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🧑‍🤝‍🧑</span><strong class="text-[#34317C]">Bénévoles en Immersion</strong></div>
+
+                    </div>
+                 </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-300">
+            <p class="text-gray-600">Cette infographie a été générée pour visualiser le plan de redynamisation des CIV.</p>
+            <p class="text-sm text-gray-500">Projet DEFI - 2025</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const wrapLabel = (str, maxWidth) => {
+                if (str.length <= maxWidth) return str;
+                let wrapped = [];
+                let words = str.split(' ');
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + word).length > maxWidth && currentLine !== '') {
+                        wrapped.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                });
+                wrapped.push(currentLine.trim());
+                return wrapped;
+            };
+
+            const causesLabels = [
+                wrapLabel('Manque d’attractivité', 16),
+                wrapLabel('Problèmes techniques', 16),
+                wrapLabel('Faible implication communautaire', 16),
+                wrapLabel('Contraintes logistiques', 16)
+            ];
+
+            const barLabels = [
+                'Nomenjanahary',
+                'Ambaravaranala',
+                'Tsarahonena',
+                'Ankisiramena',
+                'Ambohibehivavy',
+                'Marogoaika',
+                'Ambatomena'
+            ].map(label => wrapLabel(label, 16));
+
+
+            const causesCtx = document.getElementById('causesChart').getContext('2d');
+            new Chart(causesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: causesLabels,
+                    datasets: [{
+                        label: 'Causes du Déclin',
+                        data: [35, 30, 20, 15],
+                        backgroundColor: [
+                            '#34317C', // Dark Blue from logo
+                            '#00E0FF', // Light Blue from logo
+                            '#FFC300', // Yellow (kept for contrast)
+                            '#FF5733'  // Orange (kept for contrast)
+                        ],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: tooltipTitleCallback.plugins.tooltip
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            const villageBarCtx = document.getElementById('villageBarChart').getContext('2d');
+            new Chart(villageBarCtx, {
+                type: 'bar', // Changed to bar chart
+                data: {
+                    labels: barLabels,
+                    datasets: [
+                        {
+                            label: 'Niveau d\'Activité',
+                            data: [3, 2, 6, 5, 4, 0, 0],
+                            backgroundColor: '#34317C', // Dark Blue
+                        },
+                        {
+                            label: 'Engagement Communautaire',
+                            data: [4, 1, 5, 3, 3, 0, 1],
+                            backgroundColor: '#00E0FF', // Light Blue
+                        },
+                        {
+                            label: 'État de l\'Infrastructure',
+                            data: [2, 4, 8, 7, 6, 1, 3],
+                            backgroundColor: '#FFC300', // Yellow
+                        },
+                        {
+                            label: 'Visibilité du Centre',
+                            data: [5, 3, 4, 2, 5, 0, 0],
+                            backgroundColor: '#FF5733', // Orange
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y', // Makes it a horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: tooltipTitleCallback.plugins.tooltip
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            title: {
+                                display: true,
+                                text: 'Score (0-10)'
+                            }
+                        }
+                    }
+                }
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>
