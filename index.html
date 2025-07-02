@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographie : Redynamisation des CIV</title>
+    <title>Plan de Redynamisation des CIV</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +32,22 @@
             font-size: 2.5rem;
             line-height: 1;
         }
+        .modal-overlay {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .modal-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-[#F0F8FF] text-gray-800">
@@ -40,7 +56,7 @@
 
         <header class="text-center mb-12 pb-4 border-b-4 border-[#00E0FF]">
             <img src="https://www.ongdefi.org/wp-content/uploads/2024/03/logo_defi.svg" alt="Logo de l'ONG Défi" class="mx-auto mb-4 w-32 h-32 md:w-40 md:h-40 object-contain">
-            <h1 class="text-4xl md:text-6xl font-black text-[#34317C] uppercase">Redynamisation des CIV</h1>
+            <h1 class="text-4xl md:text-6xl font-black text-[#34317C] uppercase">Plan de Redynamisation des CIV</h1>
             <p class="text-lg md:text-xl text-[#00E0FF] mt-2">Relancer l'Utilité Sociale et Renforcer la Pérennité de 7 Centres Villageois</p>
         </header>
 
@@ -99,12 +115,12 @@
                         <h3 class="text-2xl font-bold text-[#34317C] mb-4">Contextes Spécifiques par Village :</h3>
                         <ul class="list-disc list-inside text-lg space-y-2">
                             <li><strong>Nomenjanahary :</strong> Faible clarté des rôles du comité, locaux peu sécurisés, besoins forts en santé et agriculture.</li>
-                            <li><strong>Ambaravaranala :</strong> Comité gestionnaire en sommeil, absence de formalisation des engagements.</li>
-                            <li><strong>Tsarahonenana :</strong> Installation récente, besoin de soutien et de sensibilisation pour une utilisation régulière.</li>
-                            <li><strong>Ankisiramena :</strong> Méconnaissance des services par une partie de la population, manquements parfois attribués aux responsables.</li>
-                            <li><strong>Ambohibehivavy :</strong> Ressources non mises à jour, un seul responsable actif limitant les opérations.</li>
-                            <li><strong>Marogoaika :</strong> CIV totalement inactif, absence de structure d’animation, manque de visibilité.</li>
-                            <li><strong>Ambatomena :</strong> Resté fermé longtemps, équipements hors service jusqu'à récemment, absence totale de visiteurs.</li>
+                            <li><strong>Ambaravaranala :</strong> L’association gestionnaire du CIV est en sommeil, absence de formalisation des engagements. L’absence d’animation, le manque de visibilité et la méconnaissance des services expliquent cette situation.</li>
+                            <li><strong>Tsarahonenana :</strong> Installation récente, de nombreux habitants n’ont pas encore bénéficié des services, besoin de soutien et de sensibilisation pour une utilisation régulière.</li>
+                            <li><strong>Ankisiramena :</strong> Méconnaissance des services par une partie de la population, qui en profite peu et attribue parfois les manquements aux responsables.</li>
+                            <li><strong>Ambohibehivavy :</strong> Ressources et activités non mises à jour, un seul responsable actif gère l’ensemble des opérations, limitant l'intérêt des usagers.</li>
+                            <li><strong>Marogoaika :</strong> Le CIV est actuellement partiellement inactif et ne reçoit aucun visiteur sauf une association des femmes. L’absence d’animation, le manque de visibilité et la méconnaissance des services expliquent cette situation.</li>
+                            <li><strong>Ambatomena :</strong> Le CIV est resté fermé pendant une longue période, la plupart des habitants ne savent plus qu’il existe. Les équipements informatiques ont été hors service jusqu’à récemment ; les réparations sont finalisées mais le matériel doit encore être transporté sur place, expliquant l’absence totale de visiteurs.</li>
                         </ul>
                     </div>
                  </div>
@@ -188,103 +204,65 @@
             <section id="sustainability" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
                  <div class="text-center bg-white rounded-lg shadow-lg p-8">
                     <h2 class="text-3xl font-bold text-[#34317C] mb-4">Construire un Avenir Durable</h2>
-                    <p class="max-w-3xl mx-auto text-lg mb-8">La redynamisation ponctuelle ne suffit pas. Voici les 12 actions clés proposées pour assurer la pérennité et l'ancrage des CIV dans la vie communautaire.</p>
+                    <p class="max-w-3xl mx-auto text-lg mb-8">La redynamisation ponctuelle ne suffit pas. Cliquez sur chaque action pour en savoir plus sur sa mise en œuvre et son objectif.</p>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-left">
                         
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🎓</span><strong class="text-[#34317C]">Capacités Locales</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">💰</span><strong class="text-[#34317C]">Micro-activités (MAGR)</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🤝</span><strong class="text-[#34317C]">Financement Participatif</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🏢</span><strong class="text-[#34317C]">Partenariats</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📊</span><strong class="text-[#34317C]">Comité de Pilotage</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📱</span><strong class="text-[#34317C]">Outils de Suivi Numérique</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🗣️</span><strong class="text-[#34317C]">Ambassadeurs</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🛠️</span><strong class="text-[#34317C]">Maintenance Préventive</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📝</span><strong class="text-[#34317C]">Évaluation Annuelle</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">📰</span><strong class="text-[#34317C]">Communication Continue</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🔄</span><strong class="text-[#34317C]">Gestion Tournante</strong></div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md"><span class="text-2xl mr-2">🧑‍🤝‍🧑</span><strong class="text-[#34317C]">Bénévoles en Immersion</strong></div>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="capacitesLocales">
+                            <span class="text-2xl mr-2">🎓</span><strong class="text-[#34317C]">Capacités Locales</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="magr">
+                            <span class="text-2xl mr-2">💰</span><strong class="text-[#34317C]">Micro-activités (MAGR)</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="financementParticipatif">
+                            <span class="text-2xl mr-2">🤝</span><strong class="text-[#34317C]">Financement Participatif</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="partenariats">
+                            <span class="text-2xl mr-2">🏢</span><strong class="text-[#34317C]">Partenariats</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="comitePilotage">
+                            <span class="text-2xl mr-2">📊</span><strong class="text-[#34317C]">Comité de Pilotage</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="suiviNumerique">
+                            <span class="text-2xl mr-2">📱</span><strong class="text-[#34317C]">Outils de Suivi Numérique</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="ambassadeurs">
+                            <span class="text-2xl mr-2">🗣️</span><strong class="text-[#34317C]">Ambassadeurs</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="maintenance">
+                            <span class="text-2xl mr-2">🛠️</span><strong class="text-[#34317C]">Maintenance Préventive</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="evaluationAnnuelle">
+                            <span class="text-2xl mr-2">📝</span><strong class="text-[#34317C]">Évaluation Annuelle</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="communicationContinue">
+                            <span class="text-2xl mr-2">📰</span><strong class="text-[#34317C]">Communication Continue</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="gestionTournante">
+                            <span class="text-2xl mr-2">🔄</span><strong class="text-[#34317C]">Gestion Tournante</strong>
+                        </button>
+                        <button class="bg-white p-4 rounded-lg shadow-sm border border-[#B2F2FF] transition-all duration-200 hover:bg-blue-50 hover:shadow-md cursor-pointer" data-action-id="benevolesImmersion">
+                            <span class="text-2xl mr-2">🧑‍🤝‍🧑</span><strong class="text-[#34317C]">Bénévoles en Immersion</strong>
+                        </button>
 
                     </div>
                  </div>
             </section>
-
-            <section id="detailed-actions" class="mb-16 transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
-                <div class="text-center bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-3xl font-bold text-[#34317C] mb-8">Détail des 12 Actions Clés pour la Pérennisation</h2>
-                    <p class="max-w-3xl mx-auto text-lg mb-8">
-                        Pour garantir que les Centres d'Information Villageois (CIV) restent des piliers dynamiques et utiles au sein de leurs communautés, un ensemble d'actions concrètes et participatives est essentiel. Voici le détail de chacune d'elles :
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">1. Renforcement des capacités locales</h3>
-                            <p class="text-gray-700 mb-2">Il s'agit de former régulièrement des animateurs et gestionnaires locaux (ateliers trimestriels) sur la gestion du CIV, l’informatique, la maintenance du matériel et l’animation communautaire.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Assurer que le personnel local a les compétences nécessaires pour gérer efficacement le CIV et offrir des services de qualité.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">2. Création de micro-activités génératrices de revenus (MAGR)</h3>
-                            <p class="text-gray-700 mb-2">Développer des services payants (impression, charge téléphone/tablette/radio carte à tarif solidaire) dont une partie des recettes finance le fonctionnement des CIV.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Générer des recettes propres pour le CIV afin de financer une partie de ses coûts de fonctionnement et réduire sa dépendance aux financements externes.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">3. Mécanismes de financement participatif local</h3>
-                            <p class="text-gray-700 mb-2">Organiser des kermesses annuelles, journées portes ouvertes ou campagnes de souscription auprès des habitants, entreprises et collectivités locales.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Impliquer financièrement la communauté et diversifier les sources de revenus du CIV.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">4. Partenariats institutionnels et privés</h3>
-                            <p class="text-gray-700 mb-2">Établir des conventions avec les administrations (éducation, commune, fokontany) et associations pour animer des sessions thématiques et recevoir des dons matériels ou financiers.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Enrichir l'offre de services du CIV, bénéficier d'expertises externes et obtenir un soutien matériel ou financier.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">5. Comité de pilotage élargi</h3>
-                            <p class="text-gray-700 mb-2">Constituer un comité de suivi incluant représentants de la mairie, associations locales et bénéficiaires, avec réunion semestrielle pour évaluer les indicateurs et valider les plans d’adaptation.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Assurer un suivi régulier des indicateurs de performance du CIV, évaluer son impact et valider les plans d'adaptation pour répondre aux besoins évolutifs de la communauté.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">6. Outils de suivi numériques</h3>
-                            <p class="text-gray-700 mb-2">Déployer un outil simple pour collecter en temps réel les données de fréquentation, les retours qualitatifs et l’état du matériel.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Permettre une gestion proactive, identifier rapidement les problèmes et mesurer l'efficacité des actions de redynamisation.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">7. Ambassadeurs communautaires</h3>
-                            <p class="text-gray-700 mb-2">Identifier et former des volontaires référents dans chaque fokontany/village, chargés de la promotion du CIV, de la sensibilisation au sein des ménages et de la remontée d’informations.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Renforcer le bouche-à-oreille positif, augmenter la visibilité du CIV et assurer une meilleure adéquation entre l'offre et la demande.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">8. Maintenance préventive planifiée</h3>
-                            <p class="text-gray-700 mb-2">Élaborer un calendrier d’entretien du matériel (nettoyage, mises à jour logicielles, vérification électrique) avec fiches de suivi signées par les responsables locaux.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Prévenir les pannes, prolonger la durée de vie des équipements et assurer un fonctionnement optimal du centre.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">9. Évaluation participative annuelle</h3>
-                            <p class="text-gray-700 mb-2">Organiser chaque année un atelier d’évaluation ouverte à tous les usagers pour co-construire les évolutions du service, ajuster l’offre et élaborer le plan d’action suivant.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Assurer que le CIV reste pertinent et adapté aux besoins de la population grâce à une implication directe des bénéficiaires.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">10. Communication continue</h3>
-                            <p class="text-gray-700 mb-2">Maintenir un bulletin trimestriel (papier et/ou numérique) présentant les activités, témoignages d’usagers et perspectives, diffusé dans les villages et via les réseaux sociaux locaux.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Informer régulièrement la communauté, valoriser l'impact du CIV et maintenir l'intérêt des habitants.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">11. Gestion tournante du CIV</h3>
-                            <p class="text-gray-700 mb-2">Mettre en place un système de rotation des responsables de gestion du centre (tous les 3 ou 6 mois si possible) afin d’éviter toute appropriation individuelle perçue par la communauté.</p>
-                            <p class="text-gray-700"><em>Objectif :</em> Éviter toute perception d'appropriation individuelle du centre par la communauté, favoriser l'implication de plusieurs membres et renforcer la transparence.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00E0FF]">
-                            <h3 class="font-bold text-xl text-[#34317C] mb-2">12. Envoi de jeunes bénévoles de DEFI en immersion</h3>
-                            <p class="text-gray-700 mb-2">Sélectionner et envoyer de jeunes volontaires pour des séjours de longue durée dans les CIV, à la manière du programme Peace Corps, afin de vivre avec les communautés, accompagner les usagers au quotidien et ancrer les usages du numérique dans la vie locale.</p>
-                            <p class="text-gray-700"><em>Objectif :</em>Apporter un soutien humain et technique continu, faciliter l'adoption des outils numériques et renforcer les liens entre l'organisation et les communautés.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <footer class="text-center mt-12 py-6 border-t border-gray-300">
-            <p class="text-gray-600">Cette infographie a été générée pour visualiser le plan de redynamisation des CIV.</p>
-            <p class="text-sm text-gray-500">Projet DEFI - 2025</p>
+            <p class="text-gray-600">Cette page a été générée pour visualiser le plan de redynamisation des CIV.</p>
+            <p class="text-sm text-gray-500">Projet 5CPV/DEFI - 2025</p>
         </footer>
+
+        <!-- Modal Structure -->
+        <div id="actionModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div class="modal-content bg-white p-8 rounded-lg shadow-2xl max-w-lg w-full md:w-1/2 relative transform -translate-y-full">
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold leading-none">&times;</button>
+                <h3 id="modalTitle" class="text-2xl font-bold text-[#34317C] mb-4"></h3>
+                <p id="modalExplanation" class="text-gray-700 mb-4"></p>
+                <p id="modalObjective" class="text-gray-700 font-semibold"></p>
+            </div>
+        </div>
 
     </div>
 
@@ -380,22 +358,22 @@
                     datasets: [
                         {
                             label: 'Niveau d\'Activité',
-                            data: [3, 2, 6, 5, 4, 0, 0],
+                            data: [3, 1, 6, 5, 4, 0, 0], // Updated data
                             backgroundColor: '#34317C', // Dark Blue
                         },
                         {
                             label: 'Engagement Communautaire',
-                            data: [4, 1, 5, 3, 3, 0, 1],
+                            data: [4, 1, 5, 3, 3, 1, 0], // Updated data
                             backgroundColor: '#00E0FF', // Light Blue
                         },
                         {
                             label: 'État de l\'Infrastructure',
-                            data: [2, 4, 8, 7, 6, 1, 3],
+                            data: [2, 4, 8, 7, 6, 1, 3], // Updated data
                             backgroundColor: '#FFC300', // Yellow
                         },
                         {
                             label: 'Visibilité du Centre',
-                            data: [5, 3, 4, 2, 5, 0, 0],
+                            data: [5, 1, 4, 2, 5, 0, 0], // Updated data
                             backgroundColor: '#FF5733', // Orange
                         }
                     ]
@@ -423,6 +401,99 @@
                 }
             });
 
+            // Modal Logic
+            const actionExplanations = {
+                capacitesLocales: {
+                    title: "Renforcement des capacités locales",
+                    explanation: "Il s'agit de former régulièrement des animateurs et gestionnaires locaux (ateliers trimestriels) sur la gestion du CIV, l’informatique, la maintenance du matériel et l’animation communautaire.",
+                    objective: "Assurer que le personnel local a les compétences nécessaires pour gérer efficacement le CIV et offrir des services de qualité."
+                },
+                magr: {
+                    title: "Création de micro-activités génératrices de revenus (MAGR)",
+                    explanation: "Développer des services payants (impression, charge téléphone/tablette/radio carte à tarif solidaire) dont une partie des recettes finance le fonctionnement des CIV.",
+                    objective: "Générer des recettes propres pour le CIV afin de financer une partie de ses coûts de fonctionnement et réduire sa dépendance aux financements externes."
+                },
+                financementParticipatif: {
+                    title: "Mécanismes de financement participatif local",
+                    explanation: "Organiser des kermesses annuelles, journées portes ouvertes ou campagnes de souscription auprès des habitants, entreprises et collectivités locales.",
+                    objective: "Impliquer financièrement la communauté et diversifier les sources de revenus du CIV."
+                },
+                partenariats: {
+                    title: "Partenariats institutionnels et privés",
+                    explanation: "Établir des conventions avec les administrations (éducation, commune, fokontany) et associations pour animer des sessions thématiques et recevoir des dons matériels ou financiers.",
+                    objective: "Enrichir l'offre de services du CIV, bénéficier d'expertises externes et obtenir un soutien matériel ou financier."
+                },
+                comitePilotage: {
+                    title: "Comité de pilotage élargi",
+                    explanation: "Constituer un comité de suivi incluant représentants de la mairie, associations locales et bénéficiaires, avec réunion semestrielle pour évaluer les indicateurs et valider les plans d’adaptation.",
+                    objective: "Assurer un suivi régulier des indicateurs de performance du CIV, évaluer son impact et valider les plans d'adaptation pour répondre aux besoins évolutifs de la communauté."
+                },
+                suiviNumerique: {
+                    title: "Outils de suivi numériques",
+                    explanation: "Déployer un outil simple pour collecter en temps réel les données de fréquentation, les retours qualitatifs et l’état du matériel.",
+                    objective: "Permettre une gestion proactive, identifier rapidement les problèmes et mesurer l'efficacité des actions de redynamisation."
+                },
+                ambassadeurs: {
+                    title: "Ambassadeurs communautaires",
+                    explanation: "Identifier et former des volontaires référents dans chaque fokontany/village, chargés de la promotion du CIV, de la sensibilisation au sein des ménages et de la remontée d’informations.",
+                    objective: "Renforcer le bouche-à-oreille positif, augmenter la visibilité du CIV et assurer une meilleure adéquation entre l'offre et la demande."
+                },
+                maintenance: {
+                    title: "Maintenance préventive planifiée",
+                    explanation: "Élaborer un calendrier d’entretien du matériel (nettoyage, mises à jour logicielles, vérification électrique) avec fiches de suivi signées par les responsables locaux.",
+                    objective: "Prévenir les pannes, prolonger la durée de vie des équipements et assurer un fonctionnement optimal du centre."
+                },
+                evaluationAnnuelle: {
+                    title: "Évaluation participative annuelle",
+                    explanation: "Organiser chaque année un atelier d’évaluation ouverte à tous les usagers pour co-construire les évolutions du service, ajuster l’offre et élaborer le plan d’action suivant.",
+                    objective: "Assurer que le CIV reste pertinent et adapté aux besoins de la population grâce à une implication directe des bénéficiaires."
+                },
+                communicationContinue: {
+                    title: "Communication continue",
+                    explanation: "Maintenir un bulletin trimestriel (papier et/ou numérique) présentant les activités, témoignages d’usagers et perspectives, diffusé dans les villages et via les réseaux sociaux locaux.",
+                    objective: "Informer régulièrement la communauté, valoriser l'impact du CIV et maintenir l'intérêt des habitants."
+                },
+                gestionTournante: {
+                    title: "Gestion tournante du CIV",
+                    explanation: "Mettre en place un système de rotation des responsables de gestion du centre (tous les 3 ou 6 mois si possible) afin d’éviter toute appropriation individuelle perçue par la communauté.",
+                    objective: "Éviter toute perception d'appropriation individuelle du centre par la communauté, favoriser l'implication de plusieurs membres et renforcer la transparence."
+                },
+                benevolesImmersion: {
+                    title: "Envoi de jeunes bénévoles de DEFI en immersion",
+                    explanation: "Sélectionner et envoyer de jeunes volontaires pour des séjours de longue durée dans les CIV, à la manière du programme Peace Corps, afin de vivre avec les communautés, accompagner les usagers au quotidien et ancrer les usages du numérique dans la vie locale.",
+                    objective: "Apporter un soutien humain et technique continu, faciliter l'adoption des outils numériques et renforcer les liens entre l'organisation et les communautés."
+                }
+            };
+
+            const actionButtons = document.querySelectorAll('#sustainability button');
+            const modal = document.getElementById('actionModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalExplanation = document.getElementById('modalExplanation');
+            const modalObjective = document.getElementById('modalObjective');
+
+            actionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const actionId = button.dataset.actionId;
+                    const data = actionExplanations[actionId];
+                    if (data) {
+                        modalTitle.textContent = data.title;
+                        modalExplanation.textContent = `Explication : ${data.explanation}`;
+                        modalObjective.textContent = `Objectif : ${data.objective}`;
+                        modal.classList.add('open');
+                    }
+                });
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('open');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('open');
+                }
+            });
 
         });
     </script>
